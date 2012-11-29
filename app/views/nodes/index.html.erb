@@ -1,16 +1,38 @@
 <h1>Icerikler:</h1>
-<% @nodes.each do |n| %>
-	<%= image_tag(Twitter.user(n.author_id).profile_image_url, :class => "img-rounded") %>
-	<br>
-	<b><%= Twitter.user(n.author_id).name %></b>
-	<br>
-	<b>NE:</b> <%= n.what %>
-	<br>
-	<b>NEREDE:</b> <%= n.location %>
-	<br>
-	<b>NE KADAR:</b><%= n.amount %>
-	<% if n.extra.present? %>
-		<br>
-		<b>EKSTRA BILGI:</b><%= n.extra %>
+
+<!-- <table border="1">
+	<tr>
+		<td>row 1, cell 1</td>
+		<td>row 1, cell 2</td>
+	</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table>
+ -->
+<table>
+	<% @nodes.each do |n| %>
+		<tr>
+			<td>
+				<%= image_tag(Twitter.user(n.author_id).profile_image_url, :class => "img-rounded") %>
+				<br>
+				<b><%= Twitter.user(n.author_id).name %></b>
+				<br>
+			</td>
+			<td>
+				<b>NE:</b> <%= n.what %>
+				<br>
+				<b>NEREDE:</b> <%= n.location %>
+				<br>
+				<b>NE KADAR:</b><%= n.amount %>
+				<% if n.extra.present? %>
+					<br>
+					<b>EKSTRA BILGI:</b><%= n.extra %>
+				<% end %>
+				<br>
+				<br>
+			</td>
+		</tr>
 	<% end %>
-<% end %>
+</table>

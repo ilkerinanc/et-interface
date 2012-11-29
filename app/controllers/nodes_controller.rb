@@ -1,6 +1,6 @@
 class NodesController < ApplicationController
   def index
-  	@nodes = Node.all
+  	@nodes = Node.order("posted_at DESC").all
   end
 
   def show

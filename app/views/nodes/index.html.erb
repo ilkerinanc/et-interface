@@ -1,42 +1,21 @@
-<h1>Icerikler:</h1>
+<div class="well well-small" align="center">
+	<form class="form-inline">
+	  <select class="span2">
+	    <option>All Categories</option>
+	  	<option>Search and Rescue</option>
+	  	<option>Material Requests</option>
+	  	<option>Blood Requests</option>
+	  	<option>Voluntary Requests</option>
+	  </select>
+	  <input type="text" class="input-medium" placeholder="Location">
+	  <input type="text" class="input-medium" placeholder="Keyword">
+	  <button type="submit" class="btn btn-success">Search</button>
+	</form>
+</div>
 
-<!-- <table border="1">
-	<tr>
-		<td>row 1, cell 1</td>
-		<td>row 1, cell 2</td>
-	</tr>
-<tr>
-<td>row 2, cell 1</td>
-<td>row 2, cell 2</td>
-</tr>
-</table>
- -->
-<table>
+<h1>Requests:</h1>
+<div>
 	<% @nodes.each do |n| %>
-		<tr>
-			<td>
-				<%= image_tag(Twitter.user(n.author_id).profile_image_url, :class => "img-rounded") %>
-				<br>
-				<b><%= Twitter.user(n.author_id).name %></b>
-				<br>
-			</td>
-			<td>
-				<b>NE:</b> <%= n.what %>
-				<br>
-				<b>NEREDE:</b> <%= n.location %>
-				<br>
-				<b>LONG:</b> <%= n.longitude %>
-				<br>
-				<b>LAT:</b> <%= n.latitude %>
-				<br>
-				<b>NE KADAR:</b><%= n.amount %>
-				<% if n.extra.present? %>
-					<br>
-					<b>EKSTRA BILGI:</b><%= n.extra %>
-				<% end %>
-				<br>
-				<br>
-			</td>
-		</tr>
+        <%= render partial: 'request_item', locals: {n: n}  %>
 	<% end %>
-</table>
+</div>

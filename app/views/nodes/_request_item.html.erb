@@ -1,0 +1,56 @@
+<hr>
+<div class="row">
+	<div class="span1" align="center">
+		<%= image_tag(Twitter.user(n.author_id).profile_image_url, :class => "img-rounded") %>
+		<br>
+		<b><%= Twitter.user(n.author_id).name %></b>
+		<br>
+	</div>
+	<div class="span4">
+		<div class="row">
+			<div class="span1" align="right">
+				<b>Need:</b>
+			</div>
+			<div class="span3">
+				<%= n.what %>
+			</div>
+		</div>
+
+		<div class="row" >
+			<div class="span1" align="right">
+				<b>Location:</b>
+			</div>
+			<div class="span3">
+				<%= n.location %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span1" align="right">
+				<b>Amount:</b>
+			</div>
+			<div class="span3">
+				<%= n.amount %>
+			</div>
+		</div>
+		<% if n.extra.present? %>
+			<div class="row">
+				<div class="span1" align="right">
+					<b>Extra Info:</b>
+				</div>
+				<div class="span3">
+					<%= n.extra %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="span2">
+		<% if n.status == 0%>
+			<span class="label label-important">Not Solved</span>
+		<%  elsif n.status == 1 %>
+			<span class="label label-warning">Being solved</span>
+		<% elsif n.status == 2 %>
+			<span class="label label-success">Solved</span>
+		<% end %>
+	</div>
+</div>

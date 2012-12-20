@@ -43,6 +43,12 @@
 				</div>
 			</div>
 		<% end %>
+		<div class="row">
+			<div class="span1" align="right">
+      			<%= link_to raw("Reply!"), "https://twitter.com/intent/tweet?in_reply_to=#{n.tid}", :target => '_blank' %>
+			</div>
+		</div>
+
 	</div>
 	<div class="span2">
 		<% if n.status == 0%>

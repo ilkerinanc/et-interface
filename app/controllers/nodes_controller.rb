@@ -13,7 +13,7 @@ class NodesController < ApplicationController
   		query << "value ILIKE '%#{params[:keyword]}%'" if params[:keyword].present?
   		
   		query_string = query.join(' AND ')
-  		@nodes = Node.where(parent_id: nil).where(query_string)
+  		@nodes = Node.where(parent_id: nil).where(query_string).order("posted_at DESC")
   	else
   		@nodes = Node.where(parent_id: nil).order("posted_at DESC").all
   	end

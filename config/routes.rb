@@ -4,7 +4,7 @@ EtInterface::Application.routes.draw do
 
   # resources :nodes
   match 'nodes' => 'nodes#index', :as => :nodes
-  match 'nodes' => 'nodes#index', :as => :nodes_post, :via => :post
+  # match 'nodes' => 'nodes#index', :as => :nodes_post, :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

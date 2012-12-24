@@ -5,52 +5,6 @@
 		<br>
 		<b><%= Twitter.user(n.author_id).name %></b>
 		<br>
-	</div>
-	<div class="span4">
-		<div class="row">
-			<div class="span1" align="right">
-				<b>Need:</b>
-			</div>
-			<div class="span3">
-				<%= n.what %>
-			</div>
-		</div>
-
-		<div class="row" >
-			<div class="span1" align="right">
-				<b>Location:</b>
-			</div>
-			<div class="span3">
-				<%= n.location %>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="span1" align="right">
-				<b>Amount:</b>
-			</div>
-			<div class="span3">
-				<%= n.amount %>
-			</div>
-		</div>
-		<% if n.extra.present? %>
-			<div class="row">
-				<div class="span1" align="right">
-					<b>Extra Info:</b>
-				</div>
-				<div class="span3">
-					<%= n.extra %>
-				</div>
-			</div>
-		<% end %>
-		<div class="row">
-			<div class="span1" align="right">
-      			<%= link_to raw("Reply!"), "https://twitter.com/intent/tweet?in_reply_to=#{n.tid}", :target => '_blank' %>
-			</div>
-		</div>
-
-	</div>
-	<div class="span2">
 		<% if n.status == 0%>
 			<span class="label label-important">Not Solved</span>
 		<%  elsif n.status == 1 %>
@@ -59,4 +13,57 @@
 			<span class="label label-success">Solved</span>
 		<% end %>
 	</div>
+	<div class="span3">
+		<div class="row">
+			<div class="span1" align="right">
+				<b>Need:</b>
+			</div>
+			<div class="span2">
+				<%= n.what %>
+			</div>
+		</div>
+
+		<div class="row" >
+			<div class="span1" align="right">
+				<b>Location:</b>
+			</div>
+			<div class="span2">
+				<%= n.location %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span1" align="right">
+				<b>Amount:</b>
+			</div>
+			<div class="span2">
+				<%= n.amount %>
+			</div>
+		</div>
+		<% if n.extra.present? %>
+			<div class="row">
+				<div class="span1" align="right">
+					<b>Extra Info:</b>
+				</div>
+				<div class="span2">
+					<%= n.extra %>
+				</div>
+			</div>
+		<% end %>
+		<div class="row">
+			<div class="span1" align="right">
+				<p class="muted"><small><%= time_ago_in_words(n.posted_at) %> ago</small></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span1" align="right">
+      			<%= link_to raw("Contact!"), "https://twitter.com/intent/tweet?in_reply_to=#{n.tid}", :target => '_blank' %>
+			</div>
+		</div>
+	</div>
+	<% if n.latitude.present? and n.longitude.present? %>
+			<%= image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{n.latitude},#{n.longitude}&zoom=13&size=300x100&key=AIzaSyDo2vTyzPYmPAvQYm_o58ZQ8YZmQttI6wo&sensor=false", :class => "img-polaroid") %>
+	<% else %>
+			Map not available.
+	<% end %>
 </div>

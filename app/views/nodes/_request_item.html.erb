@@ -3,9 +3,17 @@
 	<div class="span1" align="center">
 		<%= image_tag('https://si0.twimg.com/sticky/default_profile_images/default_profile_3_bigger.png', :class => "img-rounded") %>
 		<!-- https://si0.twimg.com/sticky/default_profile_images/default_profile_3_bigger.png -->
-		<br>
-		<b><%= n.author_id %></b>
-		<br>
+		<% author_name = ActiveRecord::Base.connection.execute("select twitter_name from myapp_reporter where twitter_id = #{n.author_id}").to_a%>
+		
+		<% if author_name.empty? %>
+			<br>
+			<b><%= Twitter.user(n.author_id).name  %></b>
+			<br>
+		<% else %>
+			<br>
+			<b><%= author_name.first['twitter_name'] %></b>
+			<br>
+		<% end %>
 
 		<% if n.status == 0%>
 			<span class="label label-important">Not Solved</span>

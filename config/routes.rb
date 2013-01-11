@@ -5,6 +5,7 @@ EtInterface::Application.routes.draw do
   # resources :nodes
   match 'nodes' => 'nodes#index', :as => :nodes
   match 'how_to_tweet' => 'home#how_to_tweet', :as => :how_to_tweet
+  match 'how_system_works' => 'home#how_system_works', :as => :how_system_works
 
   # match 'nodes' => 'nodes#index', :as => :nodes_post, :via => :post
 

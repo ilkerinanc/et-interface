@@ -1,5 +1,5 @@
-<!-- <div class="jumbotron"> -->
-	<h2>Please use the following syntax:</h2>
+<div>
+	<h2>To send a request please use the following syntax:</h2>
 	<h4>#NAME_OF_THE_DISASTER #CATEGORY_NAME #ne WHAT_YOU_NEED #nerede LOCATION_OF_NEED #adet AMOUNT #ekstra EXTRA_INFO</h4>
 	<h2 class="text-info">Explanations:</h2>
 	
@@ -26,30 +26,22 @@
 	<h5 class="text-error">EXTRA_INFO</h5>
 	This should be the extra information you want to give about your need.<br>
 	<b>Example:</b> #istanbul #akut #ne vinc #nerede rumeli hisarustu #adet 1 #ekstra <b>ayrica vinc operatoru de lazim!</b>
-<!-- </div> -->
+</div>
+<div>
+	<h2>To reply to the system please use one of the following syntaxes:</h2>
+	<h4 class="text-info">CASE 1: If some amount of your request has been solved </h4>	
+	<b>SYNTAX: #cozuldu #adet AMOUNT_SOLVED</b> <br>
+	Following example tells the system your need was met in the amount of 200 units.<br>
+	<b>Example:</b> #cozuldu #adet 200 <br>
+	<b>Note:</b> If you reply in that format, your request's status will turn from <b class="text-error">"Not solved"</b> to <b class="text-warning">"Being Solved"</b>
+	
+	<h4 class="text-info">CASE 2: If all amount of your request has been solved </h4>	
+	<b>SYNTAX: #cozuldu</b> <br>
+	You only need to reply to the system with this hashtag.<br>
+	<b>Note:</b> If you reply in that format, your request's status will turn from <b class="text-error">"Not solved"</b> or <b class="text-warning">"Being Solved"</b> to <b class="text-success">"Solved"</b>
 
-<hr>
-
-<div class="row-fluid marketing">
-	<div class="span6">
-	  <h4>Subheading</h4>
-	  <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-	  <h4>Subheading</h4>
-	  <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-	  <h4>Subheading</h4>
-	  <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-	</div>
-
-	<div class="span6">
-	  <h4>Subheading</h4>
-	  <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-	  <h4>Subheading</h4>
-	  <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-	  <h4>Subheading</h4>
-	  <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-	</div>
+	<h4 class="text-info">CASE 3: If your request has not been solved yet </h4>	
+	<b>SYNTAX: #cozulmedi</b> <br>
+	This will tell the system your request has not been solved yet. <br>
+	<b>Note:</b> If you reply in that format, your request's status will turn to <b class="text-error">"Not solved"</b>
 </div>

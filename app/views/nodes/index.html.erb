@@ -1,6 +1,6 @@
 <div class="well well-small" align="center">
 	<%= form_tag('/nodes',:method => :get, :class => "form-inline") do %>
-		<%= select_tag("category", "<option>All Categories</option><option>Search and Rescue</option><option>Material Requests</option><option>Blood Requests</option><option>Voluntary Requests</option>".html_safe, :class=>"span2" )%>
+		<%= select_tag("category", "<option>All Categories</option><option>Search and Rescue</option><option>Material Requests</option><option>Blood Requests</option><option>Voluntary Requests</option><option>Information Requests</option>".html_safe, :class=>"span2" )%>
 		<%= text_field_tag 'location', params[:location], :placeholder => 'Location', :class=> "input-medium"%>
 		<%= text_field_tag 'keyword', params[:keyword], :placeholder => 'Keyword', :class=> "input-medium"%>
 	  	<%= submit_tag('Search', :class=>"btn btn-success") %>
@@ -13,3 +13,5 @@
         <%= render partial: 'request_item', locals: {n: n}  %>
 	<% end %>
 </div>
+
+<%= will_paginate @products %>

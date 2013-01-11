@@ -4,4 +4,7 @@ class HomeController < ApplicationController
 
   def about
   end
+
+  def how_to_tweet
+  end
 end

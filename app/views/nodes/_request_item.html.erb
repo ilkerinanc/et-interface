@@ -1,16 +1,30 @@
 <hr>
 <div class="row">
 	<div class="span1" align="center">
-		<%= image_tag(Twitter.user(n.author_id).profile_image_url, :class => "img-rounded") %>
+		<%= image_tag('https://si0.twimg.com/sticky/default_profile_images/default_profile_3_bigger.png', :class => "img-rounded") %>
+		<!-- https://si0.twimg.com/sticky/default_profile_images/default_profile_3_bigger.png -->
 		<br>
-		<b><%= Twitter.user(n.author_id).name %></b>
+		<b><%= n.author_id %></b>
 		<br>
+
 		<% if n.status == 0%>
 			<span class="label label-important">Not Solved</span>
 		<%  elsif n.status == 1 %>
 			<span class="label label-warning">Being solved</span>
 		<% elsif n.status == 2 %>
 			<span class="label label-success">Solved</span>
+		<% end %>
+
+		<% if n.category_id == 1 %>
+			<span class="label label-info">Search Rescue</span>
+		<% elsif n.category_id == 2%>
+			<span class="label label-info">Material</span>
+		<% elsif n.category_id == 3%>
+			<span class="label label-info">Blood</span>
+		<% elsif n.category_id == 4%>
+			<span class="label label-info">Voluntary</span>
+		<% elsif n.category_id == 5%>
+			<span class="label label-info">Information</span>	
 		<% end %>
 	</div>
 	<div class="span3">
